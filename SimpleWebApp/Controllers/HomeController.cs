@@ -19,15 +19,14 @@ namespace SimpleWebApp.Controllers
 
         public IActionResult Index()
         {
-            //localhost:54329/
-            //localhost:54329/Home/Index
-            return View();
+            var posts = _dbContext.Posts.ToList();
+            return View(posts);
         }
 
-        public IActionResult Post()
+        public IActionResult Post(int id)
         {
-            //localhost:54329/Home/Post
-            return View();
+            var post = _dbContext.Posts.FirstOrDefault(p => p.Id == id);
+            return View(post);
         }
 
         [HttpGet]
@@ -42,7 +41,32 @@ namespace SimpleWebApp.Controllers
             _dbContext.Posts.Add(post);
             await _dbContext.SaveChangesAsync();
 
-            return RedirectToAction(nameof(this.Post));
+            return RedirectToAction(nameof(this.Index));
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var post = _dbContext.Posts.FirstOrDefault(p => p.Id == id);
+            return View(post);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(Post post)
+        {
+            _dbContext.Posts.Update(post);
+            await _dbContext.SaveChangesAsync();
+
+            return RedirectToAction(nameof(this.Index));
+        }
+
+        public async Task<IActionResult> Remove(int id)
+        {
+            var post = _dbContext.Posts.FirstOrDefault(p => p.Id == id);
+            _dbContext.Posts.Remove(post);
+            await _dbContext.SaveChangesAsync();
+
+            return RedirectToAction(nameof(this.Index));
         }
     }
 }
