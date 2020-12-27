@@ -52,6 +52,8 @@ namespace SimpleWebApp
 
             app.UseRouting();
 
+            app.UseAuthentication();
+
             app.UseEndpoints(endpoints =>
             {
                 //endpoints.MapGet("/", async context =>
