@@ -39,6 +39,12 @@ namespace SimpleWebApp
             })
                 .AddEntityFrameworkStores<AppDbContext>();
 
+            services.ConfigureApplicationCookie(cookie =>
+            {
+                cookie.LoginPath = "/Auth/Login";
+                cookie.AccessDeniedPath = "/Auth/AccessDenied";
+            });
+
             services.AddControllersWithViews();
         }
 
@@ -53,6 +59,8 @@ namespace SimpleWebApp
             app.UseRouting();
 
             app.UseAuthentication();
+
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

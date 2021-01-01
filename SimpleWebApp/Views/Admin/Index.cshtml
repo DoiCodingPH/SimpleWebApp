@@ -1,0 +1,19 @@
+﻿@model List<Post>
+
+<h1>Welcome Admin</h1>
+
+<a asp-controller="Admin" asp-action="Create">Create</a>
+
+<div>
+    <ul>
+        @foreach (var post in Model)
+        {
+            <li>
+                <a asp-controller="Home" asp-action="Post" asp-route-id="@post.Id">View</a>
+                <a asp-controller="Admin" asp-action="Edit" asp-route-id="@post.Id">Edit</a>
+                <a asp-controller="Admin" asp-action="Remove" asp-route-id="@post.Id">Remove</a>
+                <a>@post.Title</a>
+            </li>
+        }
+    </ul>
+</div>
