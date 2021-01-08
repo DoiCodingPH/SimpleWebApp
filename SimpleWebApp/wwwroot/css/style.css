@@ -1,0 +1,75 @@
+﻿nav {
+    background-color: #344955;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+    nav a {
+        color: white;
+        padding: 15px;
+        text-decoration: none;
+        font-family: 'Roboto';
+    }
+
+        nav a:hover {
+            background-color: #232F34;
+        }
+
+body {
+    margin: 0;
+}
+
+.header-img {
+    background-image: url("../img/header-image.jpg");
+    height: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .header-img span {
+        color: white;
+        font-family: 'Roboto';
+        font-size: 50px;
+    }
+
+.blogs-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 800px;
+    margin: auto;
+}
+
+.post-container {
+    padding: 15px;
+    height: 100px;
+}
+
+.post-title {
+    color: #464646;
+    font-family: 'Roboto';
+    font-size: 20px;
+}
+
+.post-content {
+    font-family: 'Roboto';
+}
+
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 500px;
+    margin: auto;
+}
+
+.login-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}

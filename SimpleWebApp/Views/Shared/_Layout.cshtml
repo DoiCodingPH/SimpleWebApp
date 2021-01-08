@@ -4,20 +4,24 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href="~/css/style.css" rel="stylesheet" />
 </head>
 <body>
     <div>
-        <a asp-controller="Home" asp-action="Index">Index</a>
+        <nav>
+            <a asp-controller="Home" asp-action="Index">Index</a>
 
-        @if (!User.Identity.IsAuthenticated)
-        {
-            <a asp-controller="Auth" asp-action="Login">Login</a>
-        }
-        else
-        {
-            <a asp-controller="Admin" asp-action="Index">Admin Panel</a>
-            <a asp-controller="Auth" asp-action="Logout">Logout</a>
-        }
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <a asp-controller="Auth" asp-action="Login">Login</a>
+            }
+            else
+            {
+                <a asp-controller="Admin" asp-action="Index">Admin Panel</a>
+                <a asp-controller="Auth" asp-action="Logout">Logout</a>
+            }
+        </nav>
     </div>
     <div>
         @RenderBody()

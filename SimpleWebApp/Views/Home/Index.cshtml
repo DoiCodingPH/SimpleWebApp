@@ -1,13 +1,15 @@
 ﻿@model List<Post>
 
-<div>
-    <ul>
-        @foreach (var post in Model)
-        {
-        <li>
-            <a asp-controller="Home" asp-action="Post" asp-route-id="@post.Id">View</a>
-            <a>@post.Title</a>
-        </li>
-        }
-    </ul>
+<div class="header-img">
+    <span>Doi Coding PH</span>
+</div>
+
+<div class="blogs-container">
+    @foreach (var post in Model)
+    {
+        <div class="post-container">
+            <a class="post-title" asp-controller="Home" asp-action="Post" asp-route-id="@post.Id">@post.Title</a>
+            <p class="post-content">@post.Content</p>
+        </div>
+    }
 </div>
